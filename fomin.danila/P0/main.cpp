@@ -1,5 +1,5 @@
 #include <iostream>
 int main()
 {
-  std::cout<<"fomin.danila\n";
+  std::cout << "fomin.danila\n";
 }
