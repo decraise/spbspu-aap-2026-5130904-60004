@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
         ++arg1_end;
     }
     int numeric = 0;
-    auto [ptr, ec] = std::from_   chars(arg1, arg1_end, numeric);
+    auto [ptr, ec] = std::from_chars(arg1, arg1_end, numeric);
     if (ec != std::errc{} || ptr != arg1_end)
     {
         std::cerr << "First parameter is not integer\n";
