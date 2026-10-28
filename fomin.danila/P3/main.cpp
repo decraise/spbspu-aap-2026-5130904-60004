@@ -22,8 +22,8 @@ int main(int argc, char* argv[])
         ++arg1_end;
     }
     int numeric = 0;
-    auto [ptr, ec] = std::from_chars(arg1, arg1_end, numeric);
-    if (ec != std::errc{} || ptr != arg1_end)
+    auto res = std::from_chars(arg1, arg1_end, numeric);
+    if (res.ec != std::errc{} || res.ptr != arg1_end)
     {
         std::cerr << "First parameter is not integer\n";
         return 1;
@@ -99,7 +99,7 @@ int main(int argc, char* argv[])
         std::cerr << "Error: " << e.what() << "\n";
         exit(1);
     }
-    catch (const std::bad_alloc)
+    catch (const std::bad_alloc& e)
     {
         std::cerr << "Bad_alloc error" << "\n";
         exit(2);
