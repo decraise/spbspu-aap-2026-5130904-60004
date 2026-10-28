@@ -3,7 +3,7 @@
 #include <new>
 #include <stdexcept>
 #include <charconv>
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     if (argc < 4)
     {
@@ -15,8 +15,8 @@ int main(int argc, char* argv[])
         std::cerr << "Too many arguments";
         return 1;
     }
-    const char* arg1 = argv[1];
-    const char* arg1_end = arg1;
+    const char *arg1 = argv[1];
+    const char *arg1_end = arg1;
     while (*arg1_end != '\0')
     {
         ++arg1_end;
@@ -45,14 +45,14 @@ int main(int argc, char* argv[])
         std::cerr << "Error create out file";
         return 2;
     }
-    int num;
+    int num = 0;
     int size_x = 0;
     int size_y = 0;
     int k = 0;
     int g = 0;
     const int size = 10000;
     int static_massive[size];
-    int* matrix = nullptr;
+    int *matrix = nullptr;
     try
     {
         if (!(in >> size_y >> size_x) || size_x < 0 || size_y < 0)
@@ -90,7 +90,7 @@ int main(int argc, char* argv[])
             throw std::invalid_argument("Not enought arguments");
         }
     }
-    catch (const std::invalid_argument& e)
+    catch (const std::invalid_argument &e)
     {
         if (numeric == 2)
         {
@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
         std::cerr << "Error: " << e.what() << "\n";
         exit(1);
     }
-    catch (const std::bad_alloc& e)
+    catch (const std::bad_alloc &e)
     {
         std::cerr << "Bad_alloc error" << "\n";
         exit(2);
