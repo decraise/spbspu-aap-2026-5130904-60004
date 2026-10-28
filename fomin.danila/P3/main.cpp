@@ -50,7 +50,8 @@ int main(int argc, char* argv[])
     int size_y = 0;
     int k = 0;
     int g = 0;
-    int static_massive[10000];
+    const int size = 10000;
+    int static_massive[size];
     int* matrix = nullptr;
     try
     {
