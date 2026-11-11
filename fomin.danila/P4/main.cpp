@@ -1,7 +1,10 @@
 #include <cstring>
 #include <iostream>
 
-char *strChange(char *modified_buffer, const char *buffer, size_t size, char target_char, char new_char) noexcept;
+namespace fomin
+{
+  char *strChange(char *modified_buffer, const char *buffer, size_t size, char target_char, char new_char) noexcept;
+}
 
 int main()
 {
@@ -79,7 +82,7 @@ int main()
     char new_char = '\0';
     std::cin >> new_char;
 
-    std::cout << strChange(modified_buffer, buffer, size + 1, target_char, new_char) << '\n';
+    std::cout << fomin::strChange(modified_buffer, buffer, size + 1, target_char, new_char) << '\n';
     delete[] buffer;
     delete[] modified_buffer;
     return 0;
@@ -92,18 +95,21 @@ int main()
   }
 }
 
-char *strChange(char *modified_buffer, const char *buffer, size_t size, char target_char, char new_char) noexcept
+namespace fomin
 {
-  for (size_t i = 0; i < size; i++)
+  char *strChange(char *modified_buffer, const char *buffer, size_t size, char target_char, char new_char) noexcept
   {
-    if (buffer[i] == target_char)
+    for (size_t i = 0; i < size; i++)
     {
-      modified_buffer[i] = new_char;
+      if (buffer[i] == target_char)
+      {
+        modified_buffer[i] = new_char;
+      }
+      else
+      {
+        modified_buffer[i] = buffer[i];
+      }
     }
-    else
-    {
-      modified_buffer[i] = buffer[i];
-    }
+    return modified_buffer;
   }
-  return modified_buffer;
 }
